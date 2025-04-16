@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis-deploy
+  namespace: projetok8s
+  labels:
+    app: redis-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: redis-deploy
+  template:
+    metadata:
+      labels:
+        app: redis-deploy
+    spec:
+      containers:
+      - name: bancodados
+        image: redis:latest
+        
